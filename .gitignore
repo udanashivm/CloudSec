@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+.env
+.env.*
+*.sqlite3
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Terraform
+*.tfstate
+*.tfstate.*
+crash.log
+.terraform/
+.terraform.lock.hcl
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Logs
+*.log
+logs/
+*.out
+*.err
+
+# Secrets (never commit sensitive files)
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.jks
+*.secrets
+secrets.*
+.envrc
+
+# OS / Editor specific
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# CI/CD
+coverage/
+.cache/
