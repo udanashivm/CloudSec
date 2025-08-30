@@ -5,12 +5,20 @@
 ---
 
 ## 📂 Repository Structure
-- `docs/` → Security documentation, best practices, compliance mappings, playbooks  
-- `automation/` → Security automation scripts (AWS, Azure, GCP, multi-cloud)  
-- `terraform/` → Infrastructure as Code (IaC) security modules  
-- `policies/` → IAM, SCPs, and bucket security policies  
-- `detection-rules/` → SIEM detection rules (Splunk, Chronicle, Elastic)  
-- `ci-cd/` → Security checks via GitHub Actions, GitLab CI, pre-commit hooks  
+- `automation/` → Automation scripts for cloud resource management and security.
+- `benchmarks/` → Cloud security benchmarks and standards.
+- `ci-cd/` → CI/CD pipeline configurations and integrations.
+- `cspm-checks/` → Cloud Security Posture Management checks and scripts.
+- `dashboards/` → Monitoring and visualization dashboards for cloud environments.
+- `detection-rules/` → Security detection rules for various platforms.
+- `docs/` → Security documentation, best practices, compliance mappings, playbooks.
+- `forensics/` → Cloud forensics tools and investigation scripts.
+- `labs/` → Security labs, attack scenarios, and remediation examples.
+- `pentest/` → Penetration testing scripts and resources for cloud platforms.
+- `policies/` → Cloud security policies and templates.
+- `policy-as-code/` → Infrastructure and security policy as code examples.
+- `terraform/` → Terraform modules and infrastructure as code templates.
+- `threat-models/` → Threat modeling resources for cloud environments.
 
 ---
 
