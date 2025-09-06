@@ -139,6 +139,6 @@ aws-s3-bucket-lister/
 ## 📌 Next Steps
 - Extend the function to list **objects inside each bucket**.  
 - Integrate with **AWS CloudWatch Events / EventBridge** to schedule regular checks.  
-- Store results in **DynamoDB** or **S3** for auditing.  
+- Store results in **DynamoDB** or **S3** for auditing.  test
 
 ---
