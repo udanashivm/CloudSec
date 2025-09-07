@@ -54,7 +54,7 @@ def lambda_handler(event, context):
     Returns:
         dict: HTTP status code and JSON body containing bucket list and count.
     """
-    # Create S3 client
+    # Create# S3 client
     s3 = boto3.client("s3")
 
     try:
