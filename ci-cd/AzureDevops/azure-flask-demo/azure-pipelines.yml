@@ -31,7 +31,7 @@ steps:
 
   - task: AzureKeyVault@2
     inputs:
-      azureSubscription: 'Azure subscription 1(628b50ba-a0f3-477f-ab21-169fa3c2e757)'
+      azureSubscription: 'Azure subscription 1()'
       KeyVaultName: 'testkvais'
       SecretsFilter: '*'
       RunAsPreJob: true
@@ -63,5 +63,6 @@ steps:
       appName: 'testappais'
       package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     displayName: 'Deploy to Azure Web App'
+
 
 
