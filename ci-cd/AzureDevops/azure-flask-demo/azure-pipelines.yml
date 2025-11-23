@@ -1,0 +1,67 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  appName: 'testappais'
+  resourceGroup: 'webapptest'
+
+steps:
+  # Use Python
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.10'
+    displayName: 'Use Python 3.10'
+
+  # Install requirements
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r azure-flask-demo/requirements.txt
+    displayName: 'Install dependencies'
+
+  # Debug view
+  - script: |
+      echo "=== Listing build directory ==="
+      ls -R $(Build.SourcesDirectory)
+    displayName: 'Debug: Show files'
+
+  - task: AzureKeyVault@2
+    inputs:
+      azureSubscription: 'Azure subscription 1(628b50ba-a0f3-477f-ab21-169fa3c2e757)'
+      KeyVaultName: 'testkvais'
+      SecretsFilter: '*'
+      RunAsPreJob: true
+
+  - script: |
+      echo "secrete value : $(dbname)"
+    displayName: "Printing the secrete is not safe"
+
+  # Create ZIP artifact from azure-flask-demo folder
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)/azure-flask-demo'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+    displayName: 'Create ZIP artifact'
+
+  # Publish Artifact
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      artifactName: 'drop'
+    displayName: 'Publish artifact'
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'Azure subscription 1()'
+      appName: 'testappais'
+      package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    displayName: 'Deploy to Azure Web App'
+
+
